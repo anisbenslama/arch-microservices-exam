@@ -1,0 +1,32 @@
+# Compiled files
+**/target/
+*.class
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Application specific
+**/application-local.yml
+**/application-dev.yml
+
+# Mobile app
+mobile-app/build/
+mobile-app/.dart_tool/
+mobile-app/.flutter-plugins
+mobile-app/.flutter-plugins-dependencies
+mobile-app/.metadata
+mobile-app/ios/Pods/
+mobile-app/ios/.symlinks/
+mobile-app/android/.gradle/

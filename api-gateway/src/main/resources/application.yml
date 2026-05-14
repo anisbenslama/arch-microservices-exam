@@ -1,0 +1,38 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: produits-service
+          uri: lb://produits-service
+          predicates:
+            - Path=/api/produits/**, /api/categories/**
+          
+        - id: avis-service
+          uri: lb://avis-service
+          predicates:
+            - Path=/api/avis/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    hostname: api-gateway
+    prefer-ip-address: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web: DEBUG
+    
